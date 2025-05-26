@@ -48,6 +48,8 @@ kubectl apply -f deployment/
 
 ![image](https://github.com/user-attachments/assets/7087e03c-acc5-46a6-8472-67a03beaaf36)
 
+![image](https://github.com/user-attachments/assets/425ebff6-0e2a-42ce-97b2-0bf68c4cc52d)
+
 
 # ----------------------------- #
 - Como Executar
