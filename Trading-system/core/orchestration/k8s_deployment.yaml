@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trading-system
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: trading
+  template:
+    metadata:
+      labels:
+        app: trading
+    spec:
+      containers:
+      - name: trading
+        image: trading-system:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: KAFKA_BROKERS
+          value: "kafka-cluster:9092"
+        resources:
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+          requests:
+            cpu: "1"
+            memory: "2Gi"
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: trading-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: trading-system
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
