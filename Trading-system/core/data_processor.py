@@ -91,3 +91,29 @@ class DataProcessor:
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         with open(f'data/{batch_type}/batch_{timestamp}.pkl', 'wb') as f:
             pickle.dump(data, f)  ## add logs
+
+    class DataProcessor:
+    
+    def process_realtime_data(self, data):
+        """Processa dados recebidos via WebSocket"""
+        try:
+            # Validação básica
+            required = ['symbol', 'price', 'timestamp']
+            if not all(field in data for field in required):
+                return
+            
+            # Atualiza a janela de dados
+            self.data_window.append(data)
+            
+            # Mantém apenas os últimos N registros
+            if len(self.data_window) > self.window_size * 2:
+                self.data_window = self.data_window[-self.window_size * 2:]
+            
+            # Gera features se tiver dados suficientes
+            if len(self.data_window) >= self.window_size:
+                features = self.create_features(self.data_window)
+                if features.size > 0:
+                    self.trading_system.on_new_data(features[-1])
+                    
+        except Exception as e:
+            print(f"Erro ao processar dados: {e}")
