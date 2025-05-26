@@ -55,6 +55,7 @@ kubectl apply -f deployment/
 - Como Executar
 
 Iniciar o sistema principal:
+
 bash
 python -m core.trading_system
 
