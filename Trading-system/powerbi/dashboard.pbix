@@ -1,0 +1,19 @@
+// Métricas do Power BI
+Daily Return = 
+VAR CurrentValue = SUM(Fact_Portfolio[TotalValue])
+VAR PrevValue = CALCULATE(
+    SUM(Fact_Portfolio[TotalValue]),
+    PREVIOUSDAY(Fact_Portfolio[Date])
+)
+RETURN DIVIDE(CurrentValue - PrevValue, PrevValue)
+
+Sharpe Ratio = 
+VAR AnnualReturn = [Annualized Return]
+VAR AnnualVolatility = [Annualized Volatility]
+RETURN DIVIDE(AnnualReturn, AnnualVolatility)
+
+Buy/Sell Ratio = 
+DIVIDE(
+    COUNTROWS(FILTER(Fact_Trades, Fact_Trades[Action] = "BUY")),
+    COUNTROWS(FILTER(Fact_Trades, Fact_Trades[Action] = "SELL"))
+)
