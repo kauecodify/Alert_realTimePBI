@@ -57,6 +57,7 @@ kubectl apply -f deployment/
 Iniciar o sistema principal:
 
 bash
+
 python -m core.trading_system
 
 
@@ -74,6 +75,10 @@ Power BI:
 
 Importar arquivos de powerbi e Configurar conexão com o dataset
 
+(Trading System) > extrai os dados da última atualização do sistema
+
+Servidor WebSocket B3 > extrai os dados da rede em tempo real
+(0.1ms)
 
 # ----------------------------- #
 
