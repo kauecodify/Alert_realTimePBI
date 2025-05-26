@@ -1,0 +1,25 @@
+{
+  "dashboard": {
+    "title": "Trading System Metrics",
+    "panels": [
+      {
+        "title": "Portfolio Value",
+        "type": "graph",
+        "datasource": "Prometheus",
+        "targets": [{
+          "expr": "portfolio_value",
+          "legendFormat": "{{symbol}}"
+        }]
+      },
+      {
+        "title": "Model Performance",
+        "type": "stat",
+        "datasource": "Prometheus",
+        "targets": [{
+          "expr": "model_accuracy",
+          "format": "percent"
+        }]
+      }
+    ]
+  }
+}
