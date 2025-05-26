@@ -44,7 +44,7 @@ kubectl apply -f deployment/
 
 
 # ----------------------------- #
-- Estrutura do Projeto
+- Estrutura do Projeto > key
 
 ![image](https://github.com/user-attachments/assets/7087e03c-acc5-46a6-8472-67a03beaaf36)
 
