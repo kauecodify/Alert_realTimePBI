@@ -1,6 +1,6 @@
 <img src="https://github.com/user-attachments/assets/6e845136-dd47-4060-b172-72e954c63777/" width="150px" alt="Brasil" />
 
-### Sistema de Alertas com Orquestração no Power BI em Tempo Real
+# Sistema de Alertas com Orquestração no Power BI em Tempo Real
 
 - INFRA
 
@@ -59,12 +59,59 @@ python -m core.trading_system
 
 # ----------------------------- #
 - Monitoramento:
-- 
+
 Métricas: http://localhost:8000
 
 Dashboard: http://localhost:3000 (Grafana)
 
 
 # ----------------------------- #
-- Power BI:
+
+Power BI:
+
 Importar arquivos de powerbi e Configurar conexão com o dataset
+
+
+# ----------------------------- #
+
+Funcionalidades
+
+Processamento em Tempo Real:
+
+- Consumo de feeds de mercado
+
+- Cálculo de features técnicas
+
+- Validação de qualidade de dados
+
+# ----------------------------- #
+
+Modelo de Trading:
+
+Arquitetura LSTM com mecanismo de atenção
+
+Buffer de experiência para replay
+
+Atualização periódica do modelo alvo
+
+# ----------------------------- #
+
+Auto-Regeneração:
+
+Otimização de hiperparâmetros com Optuna
+
+Benchmark de modelos (XGBoost, Random Forest)
+
+Deploy automatizado de melhor modelo
+
+# ----------------------------- #
+
+Visualização:
+
+Dashboards interativos no Power BI
+
+Alertas via Slack/Email
+
+Métricas em tempo real via Prometheus
+
+# ----------------------------- #
